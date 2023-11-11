@@ -1,7 +1,7 @@
-package ru.example.cloudModuleTest.AutorService.CloudModuleTestAuthorService.service;
+package ru.example.cloudModuleTest.ArticleService.CloudModuleTestArticleService.service;
 
 import org.springframework.stereotype.Service;
-import ru.example.cloudModuleTest.AutorService.CloudModuleTestAuthorService.model.Article;
+import ru.example.cloudModuleTest.ArticleService.CloudModuleTestArticleService.model.Article;
 
 import java.util.List;
 import java.util.Optional;
