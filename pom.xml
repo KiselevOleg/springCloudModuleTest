@@ -67,6 +67,8 @@
     <modules>
         <module>AuthorService</module>
         <module>ArticleService</module>
+        <module>ConfigService</module>
+        <module>ServiceDiscovery</module>
     </modules>
 
 </project>

@@ -1,0 +1,7 @@
+spring:
+    application:
+        name: ServiceDiscovery
+    cloud:
+        config:
+            name: ServiceDiscovery
+            uri: http://localhost:9001
