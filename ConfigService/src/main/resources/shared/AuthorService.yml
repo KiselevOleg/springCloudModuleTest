@@ -1,2 +1,5 @@
+spring:
+    application:
+        name: AuthorService
 server:
     port: 9004

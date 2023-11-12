@@ -1,3 +1,13 @@
 spring:
     application:
         name: ArticleService
+    cloud:
+        config:
+            name: ArticleService
+            discovery:
+                service-id: ConfigService
+                enabled: true
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:9002/eureka/
