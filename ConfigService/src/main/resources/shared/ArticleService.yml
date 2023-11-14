@@ -1,2 +1,6 @@
+spring:
+    application:
+        name: ArticleService
 server:
-    port: 9003
+    port:
+        9004

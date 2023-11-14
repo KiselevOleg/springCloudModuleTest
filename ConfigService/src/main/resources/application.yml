@@ -4,9 +4,10 @@ spring:
     cloud:
         config:
             server:
-                server:
-                    git:
-                        uri: classpath:/shared
+                native:
+                    search-locations: classpath:/shared
+    profiles:
+        active: native
 server:
     port: 9001
 eureka:

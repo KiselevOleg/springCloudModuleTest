@@ -1,0 +1,13 @@
+spring:
+    application:
+        name: GatewayService
+    cloud:
+        config:
+            name: GatewayService
+            discovery:
+                service-id: ConfigService
+                enabled: true
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:9002/eureka/

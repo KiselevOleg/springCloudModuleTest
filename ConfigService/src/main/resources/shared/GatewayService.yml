@@ -1,0 +1,22 @@
+spring:
+    application:
+        name: GatewayService
+    cloud:
+        gateway:
+            discovery:
+                locator:
+                    enabled: true
+                    lower-case-service-id: true
+            routes:
+              - id: AuthorServiceRouter
+                uri: lb://AuthorService
+                predicates:
+                  - Path=/authors/**
+                  - Method=GET
+              - id: ArticleServiceRouter
+                uri: lb://ArticleService
+                predicates:
+                  - Path=/articles/**
+                  - Method=GET
+server:
+    port: 8081

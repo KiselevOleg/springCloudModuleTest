@@ -1,7 +1,7 @@
 spring:
     application:
-        name: ServiceDiscovery
+        name: RegistryService
     cloud:
         config:
-            name: ServiceDiscovery
+            name: RegistryService
             uri: http://localhost:9001
