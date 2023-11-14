@@ -2,4 +2,4 @@ spring:
     application:
         name: AuthorService
 server:
-    port: 9003
+    port: 0

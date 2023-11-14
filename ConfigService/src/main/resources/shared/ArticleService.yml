@@ -3,4 +3,4 @@ spring:
         name: ArticleService
 server:
     port:
-        9004
+        0

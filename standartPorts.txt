@@ -1,4 +1,4 @@
-gateway 8765
+gateway 8765(8080)
 eureka 8761
 config 8888
 other 0(or 8080+i,i=number of a service)

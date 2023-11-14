@@ -4,4 +4,4 @@ spring:
     cloud:
         config:
             name: RegistryService
-            uri: http://localhost:9001
+            uri: http://localhost:8888
