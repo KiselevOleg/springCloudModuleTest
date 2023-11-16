@@ -1,0 +1,45 @@
+version: '3'
+services:
+    config-service:
+        image: springcloudmoduletest-configservice:1.0.0
+        ports:
+            - "8888:8888"
+        networks:
+            - cloudTestNetwork
+
+    registry-service:
+        image: springcloudmoduletest-registryservice:1.0.0
+        ports:
+            - "8761:8761"
+        networks:
+            - cloudTestNetwork
+        depends_on:
+            - config-service
+
+    gateway-service:
+        image: springcloudmoduletest-gatewayservice:1.0.0
+        ports:
+            - "8080:8080"
+        networks:
+            - cloudTestNetwork
+        depends_on:
+            - registry-service
+            - config-service
+
+    author-service:
+        image: springcloudmoduletest-authorservice:1.0.0
+        networks:
+            - cloudTestNetwork
+        depends_on:
+            - gateway-service
+
+    article-service:
+        image: springcloudmoduletest-articleservice:1.0.0
+        networks:
+            - cloudTestNetwork
+        depends_on:
+            - gateway-service
+
+networks:
+    cloudTestNetwork:
+        driver: bridge
