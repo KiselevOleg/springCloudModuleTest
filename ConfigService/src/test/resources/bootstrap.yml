@@ -1,9 +1,15 @@
 spring:
+    application:
+        name: ConfigService
     cloud:
         config:
-            discovery:
-                enabled: false
-            enabled: false
+            server:
+                native:
+                    search-locations: classpath:/shared
+    profiles:
+        active: native
+server:
+    port: 8888
 eureka:
     client:
         enabled: false
