@@ -2,4 +2,7 @@ sudo docker build -t springcloudmoduletest-configservice:1.0.0 ./ConfigService &
 sudo docker build -t springcloudmoduletest-registryservice:1.0.0 ./RegistryService && \
 sudo docker build -t springcloudmoduletest-gatewayservice:1.0.0 ./GatewayService && \
 sudo docker build -t springcloudmoduletest-authorservice:1.0.0 ./AuthorService && \
-sudo docker build -t springcloudmoduletest-articleservice:1.0.0 ./ArticleService
+sudo docker build -t springcloudmoduletest-articleservice:1.0.0 ./ArticleService && \
+sudo docker build -t springcloudmoduletest-productproducer:1.0.0 ./ProductProducer && \
+sudo docker build -t springcloudmoduletest-productdatabaseconsumer:1.0.0 ./ProductDatabaseConsumer && \
+sudo docker build -t springcloudmoduletest-productconsoleconsumer:1.0.0 ./ProductConsoleConsumer

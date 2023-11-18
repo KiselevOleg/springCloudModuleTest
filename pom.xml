@@ -67,6 +67,9 @@
         <module>ConfigService</module>
         <module>RegistryService</module>
         <module>GatewayService</module>
+        <module>ProductProducer</module>
+        <module>ProductDatabaseConsumer</module>
+        <module>ProductConsoleConsumer</module>
     </modules>
 
 </project>

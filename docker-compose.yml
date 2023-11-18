@@ -2,22 +2,23 @@ version: '3'
 services:
     config-service:
         image: springcloudmoduletest-configservice:1.0.0
+        restart: unless-stopped
         ports:
             - "8888:8888"
         networks:
             - cloudTestNetwork
-
     registry-service:
         image: springcloudmoduletest-registryservice:1.0.0
+        restart: unless-stopped
         ports:
             - "8761:8761"
         networks:
             - cloudTestNetwork
         depends_on:
             - config-service
-
     gateway-service:
         image: springcloudmoduletest-gatewayservice:1.0.0
+        restart: unless-stopped
         ports:
             - "8080:8080"
         networks:
@@ -28,13 +29,58 @@ services:
 
     author-service:
         image: springcloudmoduletest-authorservice:1.0.0
+        restart: unless-stopped
+        networks:
+            - cloudTestNetwork
+        depends_on:
+            - gateway-service
+    article-service:
+        image: springcloudmoduletest-articleservice:1.0.0
         networks:
             - cloudTestNetwork
         depends_on:
             - gateway-service
 
-    article-service:
-        image: springcloudmoduletest-articleservice:1.0.0
+    database-postgres:
+        image: postgres:15
+        restart: unless-stopped
+        environment:
+            - POSTGRES_DB=testCloudApplication
+            - POSTGRES_USER=haart
+            - POSTGRES_PASSWORD=phaart
+        ports:
+            - '5432:5432'
+        networks:
+            - cloudTestNetwork
+    pgadmin:
+        image: dpage/pgadmin4:latest
+        restart: unless-stopped
+        environment:
+            - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+            - PGADMIN_DEFAULT_PASSWORD=admin
+        ports:
+            - '15432:80'
+        networks:
+            - cloudTestNetwork
+
+    product-producer:
+        image: springcloudmoduletest-productproducer:1.0.0
+        restart: unless-stopped
+        networks:
+            - cloudTestNetwork
+        depends_on:
+            - gateway-service
+    product-database-consumer:
+        image: springcloudmoduletest-productdatabaseconsumer:1.0.0
+        restart: unless-stopped
+        networks:
+            - cloudTestNetwork
+        depends_on:
+            - gateway-service
+            - database-postgres
+    product-console-consumer:
+        image: springcloudmoduletest-productconsoleconsumer:1.0.0
+        restart: unless-stopped
         networks:
             - cloudTestNetwork
         depends_on:
