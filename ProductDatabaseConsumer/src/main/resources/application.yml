@@ -1,4 +1,6 @@
 spring:
+    application:
+        name: ProductDatabaseConsumer
     datasource:
         url: jdbc:postgresql://database-postgres:5432/testCloudApplication
         username: haart
@@ -9,3 +11,10 @@ spring:
         generate-ddl: true
         hibernate:
             ddl-auto: update
+    kafka:
+        consumer:
+            bootstrap-servers: kafka:29092
+            group-id: product-database-consumer
+application:
+    kafka:
+        topic: product-topic

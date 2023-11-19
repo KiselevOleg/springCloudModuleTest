@@ -1,0 +1,12 @@
+spring:
+    application:
+        name: ProductProducer
+    kafka:
+        bootstrap-servers: kafka:29092
+        client-id: product-producer
+application:
+    kafka:
+        topic: product-topic
+        numPartition: 1
+server:
+    port: 0
