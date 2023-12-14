@@ -135,6 +135,14 @@ services:
         depends_on:
             - zookeeper
 
+    geocoder-service:
+        image: springcloudmoduletest-geocoderservice:1.0.0
+        restart: unless-stopped
+        networks:
+            - cloudTestNetwork
+        depends_on:
+            - gateway-service
+
 networks:
     cloudTestNetwork:
         driver: bridge

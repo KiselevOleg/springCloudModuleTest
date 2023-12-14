@@ -1,0 +1,13 @@
+spring:
+    application:
+        name: GeocoderService
+    datasource:
+        url: jdbc:postgresql://database-postgres:5432/testCloudApplication
+        username: haart
+        password: phaart
+        driverClassName: org.postgresql.Driver
+    jpa:
+        spring.jpa.database-platform: org.hibernate.dialect.PostgreSQLDialect
+        generate-ddl: true
+        hibernate:
+            ddl-auto: update
