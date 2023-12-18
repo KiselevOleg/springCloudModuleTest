@@ -36,6 +36,7 @@ services:
             - gateway-service
     article-service:
         image: springcloudmoduletest-articleservice:1.0.0
+        restart: unless-stopped
         networks:
             - cloudTestNetwork
         depends_on:
@@ -135,6 +136,20 @@ services:
         depends_on:
             - zookeeper
 
+    redis:
+        image: redis:latest
+        restart: unless-stopped
+        ports:
+            - "6379:6379"
+        networks:
+            - cloudTestNetwork
+    redis-client:
+        image: ubuntu:latest
+        restart: unless-stopped
+        command: bash -c "apt update && apt install -y redis-server && tail -f /dev/null"
+        networks:
+            - cloudTestNetwork
+
     geocoder-service:
         image: springcloudmoduletest-geocoderservice:1.0.0
         restart: unless-stopped
@@ -142,6 +157,7 @@ services:
             - cloudTestNetwork
         depends_on:
             - gateway-service
+            - redis
 
 networks:
     cloudTestNetwork:

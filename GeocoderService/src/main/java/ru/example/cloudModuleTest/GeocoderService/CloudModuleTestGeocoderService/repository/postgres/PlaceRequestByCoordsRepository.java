@@ -1,4 +1,4 @@
-package ru.example.cloudModuleTest.GeocoderService.CloudModuleTestGeocoderService.repository;
+package ru.example.cloudModuleTest.GeocoderService.CloudModuleTestGeocoderService.repository.postgres;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
